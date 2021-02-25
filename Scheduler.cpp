@@ -9,11 +9,31 @@
 
 #include "NoteConverter.h"
 #include "Arduino.h"
+#include<list>
+using namespace std;
 
 int pin;
+int noteDuration;
 
-Scheduler::Scheduler(int pin)
+list<Note> queue; 
+
+Scheduler::Scheduler(int pin, int noteDurationSec)
 {
     this -> pin = pin;
+    noteDuration = noteDurationSec;
 }
 
+void Scheduler::addNote(Note note)
+{
+    queue.push_back(note);
+}
+
+int Scheduler::queueLength()
+{
+    return queue.size();
+}
+
+void Scheduler::setNoteDuration(int noteDurationSec)
+{
+    noteDuration = noteDurationSec;
+}

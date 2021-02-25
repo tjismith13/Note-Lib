@@ -120,11 +120,13 @@ class Converter {
 class Scheduler {
     public:
         int pin;
-        Scheduler(int pin);
-        void setNoteDurration(int sec);
+        Scheduler(int pin, int noteDuration);
+        void setNoteDuration(int sec);
         void addNote(Note note);
         int queueLength();
         void play();
+    private:
+        int noteDuration;
 };
 
 #endif
