@@ -122,6 +122,8 @@ enum NoteType : int {
 class Note {
     public:
         Note(Pitch pitch, NoteType noteType);
+        Pitch getPitch();
+        NoteType getNoteType();
     private:
         Pitch pitch;
         NoteType noteType;
@@ -135,13 +137,15 @@ class Converter {
 
 class Scheduler {
     public:
-        int pin;
+        
         Scheduler(int pin, int noteDuration);
         void setNoteDuration(int sec);
         void addNote(Note note);
         int queueLength();
         void play();
+        void setPin(int pin);
     private:
+    int pin;
         int noteDuration;
 };
 

@@ -15,3 +15,13 @@ Note::Note(Pitch pitch, NoteType noteType)
     this -> pitch = pitch;
     this -> noteType = noteType;
 }
+
+Pitch Note::getPitch()
+{
+    return pitch;
+}
+
+NoteType Note::getNoteType() 
+{
+    return noteType;
+}
