@@ -12,23 +12,23 @@
 #include "Arduino.h"
 #include "math.h"
 
-int Converter::toHz(Note note)
+int Converter::toHz(Pitch pitch)
 {
-    int noteVal = note;
+    int noteVal = pitch;
     return 440 * pow((pow(2, (1/12))), noteVal);
 }
 
-Note Converter::toNote(int frequency)
+Pitch Converter::toNote(int frequency)
 {
     int difference = MAXFLOAT;
-    Note result;
+    Pitch result;
     for(int i = -56; i < 39; i++)
     {
-        Note note = static_cast<Note>(frequency);
-        if(abs(frequency - toHz(note)) < difference)
+        Pitch pitch = static_cast<Pitch>(frequency);
+        if(abs(frequency - toHz(pitch)) < difference)
         {
-            difference = abs(frequency - toHz(note));
-            result = note;
+            difference = abs(frequency - toHz(pitch));
+            result = pitch;
         }
     }
     return result;

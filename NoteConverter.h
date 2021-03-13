@@ -13,7 +13,7 @@
 
 #include "Arduino.h"
 
-enum Note : int{
+enum Pitch : int{
     c0 = -56,
     cSharp0,
     d0,
@@ -111,10 +111,26 @@ enum Note : int{
     b7
 };
 
+enum NoteType : int {
+    sixteenth,
+    eighth,
+    quarter,
+    half,
+    full
+};
+
+class Note {
+    public:
+        Note(Pitch pitch, NoteType noteType);
+    private:
+        Pitch pitch;
+        NoteType noteType;
+};
+
 class Converter {
     public:
-        int toHz(Note);
-        Note toNote(int frequency);
+        int toHz(Pitch);
+        Pitch toNote(int frequency);
 };
 
 class Scheduler {

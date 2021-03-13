@@ -15,7 +15,7 @@ using namespace std;
 int pin;
 int noteDuration;
 
-list<Note> queue; 
+list<Note> queue;
 
 Scheduler::Scheduler(int pin, int noteDurationSec)
 {
